@@ -10,6 +10,8 @@ mvn clean package -U -Dmaven.test.skip=true -P release
 
 ## Note
 
+### lombok-maven-plugin
+
 完整的配置如下所
 
 
@@ -140,7 +142,21 @@ mvn clean package -U -Dmaven.test.skip=true -P release
 ```
 如果不是在jetbrains中运行，可以将上述代码中的`<outputDirectory>${delombok.dir}</outputDirectory>`所在行注释掉，也是可以的，这个时候，lombok生成的java文件将会存放在目录`target/generated-sources/delombok`中。
 
+### maven-compiler-plugin
+
+从JDK 9开始，java编译器启用了--release参数项，故而`maven-compiler-plugin`也从3.6开始拥抱了这一变化，上述代码中，
+
+```xml
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+    </properties>
+```
+这部分也是正好应用了这一特性。
+
+
 >参考文献
 >- [Lombok Maven Plugin](http://anthonywhitford.com/lombok.maven/lombok-maven-plugin/usage.html)
 >- [使用了lombok后如何生成正确源码包](https://blog.csdn.net/AS011x/article/details/126744011)
+>- [Setting the --release of the Java Compiler](https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html)
 
