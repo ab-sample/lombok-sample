@@ -1,4 +1,4 @@
-package com.qwfys.sample.vo;
+package com.qwfys.sample.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 @Data
 @Builder
 @Accessors(chain = true)
-public class RoleVO {
+public class Role {
 
     private Long id;
 
