@@ -17,7 +17,11 @@ public class CalculatorTests {
     @DisplayName("1 + 1 = 2")
     void addsTwoNumbers() {
         Calculator calculator = new Calculator();
-        assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
+        assertEquals(
+                2,
+                calculator.add(1, 1),
+                "1 + 1 should equal 2"
+        );
     }
 
     @ParameterizedTest(name = "{0} + {1} = {2}")
@@ -29,7 +33,10 @@ public class CalculatorTests {
     })
     void add(int first, int second, int expectedResult) {
         Calculator calculator = new Calculator();
-        assertEquals(expectedResult, calculator.add(first, second),
-                () -> first + " + " + second + " should equal " + expectedResult);
+        assertEquals(
+                expectedResult,
+                calculator.add(first, second),
+                () -> first + " + " + second + " should equal " + expectedResult
+        );
     }
 }
